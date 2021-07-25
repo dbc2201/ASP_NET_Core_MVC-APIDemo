@@ -1,0 +1,33 @@
+﻿@page
+@model APIDemo.Views.PostView
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Index</title>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.js">
+ </script>
+    <script>
+        $(function() {
+            let params = { key: 'key3', value: 'value3' };
+            $.ajax({
+                url: "http://localhost:[port]/api/values",
+                type: "POST",
+                data: JSON.stringify({ key: 'key3', value: 'value3' }),
+                contentType: "application/json;charset=utf-8"
+            }).done(function (responseText) {
+            $("#myDiv").text("Value added successfully");})
+                .fail(function () {
+                    alert("An error has occurred");
+                });
+            });
+    </script>
+</head>
+<body>
+<div id="myDiv"></div>
+</body>
+</html>

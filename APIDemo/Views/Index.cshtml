@@ -1,0 +1,31 @@
+﻿@page
+@model APIDemo.Views.Index
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<div>
+
+</div>
+</body>
+<script>
+    $(function() {
+        $.ajax({
+            url: "http://localhost:[port]/api/values/key1",
+            type: "GET"
+        }).done(function (responseText) {
+        $("#myDiv").text(responseText);})
+            .fail(function () {
+                alert("An error has occurred");
+            });
+    });
+</script>
+</html>
